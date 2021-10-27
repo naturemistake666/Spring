@@ -16,7 +16,7 @@ public class User {
     private String name;
 
     @Column(name = "surname")
-    @Pattern(regexp = "[A-Za-z]{2,15}", message = "Surname be between 2 and 15 latin characters")
+    @Pattern(regexp = "[A-Za-z]{2,15}", message = "Surname should be between 2 and 15 latin characters")
     private String surname;
 
     @Column(name = "age")
@@ -79,5 +79,4 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-
 }
