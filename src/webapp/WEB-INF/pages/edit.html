@@ -14,13 +14,18 @@
             word-break: normal;
             border-color: #ccc;
             color: #333;
-            background-color: cadetblue;
+            background-color: ivory;
         }
         .buttonEdit {
             background: gold;
             position: relative;
             left: 50%;
             transform: translate(-50%, 0);
+        }
+        div {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: #fd3434;
         }
     </style>
 </head>
@@ -37,13 +42,15 @@
         <tr>
             <td>
                 <label for="name">Enter name</label>
-                <input type="text" pattern="[A-Za-z]{2,15}" th:field="*{name}" id="name" required/>
+                <input type="text" th:field="*{name}" id="name" required/>
+                <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">name error</div>
             </td>
         </tr>
         <tr>
             <td>
                 <label for="surname">Enter surname</label>
-                <input type="text" pattern="[A-Za-z]{0,15}" th:field="*{surname}" id="surname"/>
+                <input type="text" th:field="*{surname}" id="surname"/>
+                <div th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}">surname error</div>
             </td>
         </tr>
         <br>
@@ -57,7 +64,8 @@
         <tr>
             <td>
                 <label for="email">Enter email</label>
-                <input type="text" pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})" th:field="*{email}" id="email" required/>
+                <input type="text" th:field="*{email}" id="email" required/>
+                <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}">email error</div>
             </td>
         </tr>
         <br>
@@ -68,6 +76,5 @@
         </tr>
     </table>
 </form>
-
 </body>
 </html>

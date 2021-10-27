@@ -1,6 +1,7 @@
 package web.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "users")
@@ -11,15 +12,18 @@ public class User {
     private Long user_id;
 
     @Column(name = "name")
+    @Pattern(regexp = "[A-Za-z]{2,15}", message = "Name should be between 2 and 15 latin characters")
     private String name;
 
     @Column(name = "surname")
+    @Pattern(regexp = "[A-Za-z]{2,15}", message = "Surname be between 2 and 15 latin characters")
     private String surname;
 
     @Column(name = "age")
     private byte age;
 
     @Column(name = "email")
+    @Pattern(regexp = "([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})", message = "Enter correct email")
     private String email;
 
     public User() {
