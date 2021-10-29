@@ -30,7 +30,7 @@
     </style>
 </head>
 <body>
-<h1>Add User</h1>
+<h1>Add user</h1>
 <form action="#" method="POST" th:action="@{/new}" th:object="${user}">
     <table>
         <tr>
@@ -52,6 +52,7 @@
             <td>
                 <label for="age">Enter age</label>
                 <input type="number" min="0" max="127" th:field="*{age}" id="age">
+                <div th:if="${#fields.hasErrors('age')}" th:errors="*{age}">age error</div>
             </td>
         </tr>
             <br>
@@ -65,7 +66,7 @@
             <br>
         <tr>
             <td>
-                <input type="submit" class="buttonAdd" value="Add User"/>
+                <input type="submit" class="buttonAdd" value="Add user"/>
             </td>
         </tr>
     </table>
