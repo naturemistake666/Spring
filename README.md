@@ -1,4 +1,4 @@
-# JM preproject. Practical task 2.3.1 (CRUD)
+# Spring (CRUD)
 
 ## Условие:
 
