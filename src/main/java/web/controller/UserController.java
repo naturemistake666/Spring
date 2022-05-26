@@ -25,12 +25,6 @@ public class UserController {
         return "users";
     }
 
-    @GetMapping("/{id}")
-    public String getUser (@PathVariable("id") long id, Model model) {
-        model.addAttribute("user", userService.getUserById(id));
-        return "user";
-    }
-
     @GetMapping("/new")
     public String addUser(User user) {
         return "create";
@@ -46,7 +40,7 @@ public class UserController {
         }
     }
 
-    @DeleteMapping("/delete/{id}")
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     public String delete(@PathVariable("id") long id) {
         userService.removeUser(id);
         return "redirect:/";
